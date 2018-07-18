@@ -1,0 +1,31 @@
+CREATE TABLE User(id VARCHAR(32) PRIMARY KEY, 
+username VARCHAR(20) NOT NULL,
+password VARCHAR(20) NOT NULL,
+sex tinyint(1) NOT NULL,
+age tinyint(3) NOT NULL,
+birthOfDate Date NOT NULL,
+mobilePhoneNumber VARCHAR(15) NOT NULL,
+address VARCHAR(50),
+email VARCHAR(30) NOT NULL,
+userType tinyint(1) NOT NULL)Engine=InnoDB DEFAULT CHARSET=utf8; 
+
+CREATE TABLE Provider(id VARCHAR(32) PRIMARY KEY, 
+providerCode VARCHAR(35) NOT NULL,
+providerName VARCHAR(30) NOT NULL,
+contact VARCHAR(20) NOT NULL,
+contactNumber VARCHAR(15) NOT NULL,
+address VARCHAR(50),
+fax VARCHAR(20),
+email VARCHAR(40) NOT NULL,
+createDate DATE,
+description VARCHAR(50))Engine=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE Bill(id VARCHAR(32) PRIMARY KEY, 
+billCode VARCHAR(35) NOT NULL,
+goodsName VARCHAR(30) NOT NULL,
+price DOUBLE(10,2) NOT NULL,
+quantity INT(10) NOT NULL,
+amount DOUBLE(10,2) NOT NULL,
+providerId VARCHAR(32) NOT NULL,
+paid TINYINT(1) NOT NULL,
+createDate DATE NOT NULL)Engine=InnoDB DEFAULT CHARSET=utf8;
